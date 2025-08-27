@@ -4,6 +4,7 @@ import SearchBar from './components/SearchBar.jsx'
 import FilmList from './components/FilmList.jsx'
 
 function App() {
+  const apiKey = import.meta.env.VITE_TMDB_API_KEY;
   const [searchTerm, setSearchTerm] = useState('')
 
 
@@ -11,7 +12,7 @@ function App() {
     <>
     <h1>FilmFinder</h1>
     <SearchBar setSearchTerm={setSearchTerm}/>
-    <FilmList searchTerm={searchTerm}/>
+    <FilmList searchTerm={searchTerm} apiKey={apiKey}/>
     </>
   )
 }
