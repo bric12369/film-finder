@@ -12,7 +12,8 @@ const FilmList = ({ searchTerm, apiKey }) => {
     }, [searchTerm])
     return (
         <>
-        {searchTerm !== '' && <h2>Search Results: {searchTerm}</h2>}
+        {searchTerm !== '' && films.length > 0 && <h2>Search Results: {searchTerm}</h2>}
+        {searchTerm !== '' && films.length === 0 && <h2>Sorry... No results for {searchTerm}</h2>}
         <ul>
             {films.map((film) => {
                 return(
