@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import FilmCard from "./FilmCard"
 
 const FilmList = ({ searchTerm, apiKey }) => {
     const [films, setFilms] = useState([])
@@ -25,19 +26,11 @@ const FilmList = ({ searchTerm, apiKey }) => {
         (<>
             {searchTerm !== '' && films.length > 0 && <h2>Search Results: {searchTerm}</h2>}
             {searchTerm !== '' && films.length === 0 && <h2>Sorry... No results for {searchTerm}</h2>}
-            <ul>
+            <div id='filmCardContainer'>
                 {films.map((film) => {
-                    const poster = film.poster_path === null ? '../public/tumbleweed-silence.gif' : `https://image.tmdb.org/t/p/w500${film.poster_path}`
-                    return (
-                        <li key={film.id}>
-                            <h3>{film.title}</h3>
-                            <p>{film.release_date}</p>
-                            <img src={poster} />
-                            <p>{film.overview}</p>
-                        </li>
-                    )
+                    return <FilmCard film={film} />
                 })}
-            </ul>
+            </div>
         </>
         )
 }

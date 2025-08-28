@@ -37,16 +37,20 @@ form label {
   font-size: 1.1rem;
 }
 
-ul {
+#filmCardContainer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
 }
 
-li {
-  list-style: none;
+#filmCard {
   width: 40%;
-  padding: 2rem;
+  margin: 2rem;
+}
+
+#posterContainer {
+  height: 50rem;
+  align-content: center
 }
 
 .spinner-container {
