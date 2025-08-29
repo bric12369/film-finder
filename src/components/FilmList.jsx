@@ -12,7 +12,6 @@ const FilmList = ({ searchTerm, apiKey, setWatchList }) => {
                 return res.json()
             })
             .then(data => {
-                console.log(data.results)
                 setFilms(data.results)
                 setIsLoading(false)
             });
@@ -28,7 +27,7 @@ const FilmList = ({ searchTerm, apiKey, setWatchList }) => {
             {searchTerm !== '' && films.length === 0 && <h2>Sorry... No results for {searchTerm}</h2>}
             <div id='filmCardContainer'>
                 {films.map((film) => {
-                    return <FilmCard film={film} key={film.id} setWatchList={setWatchList} showButton={true} />
+                    return <FilmCard film={film} key={film.id} setWatchList={setWatchList} showAddButton={true} showRemoveButton={false} />
                 })}
             </div>
         </>

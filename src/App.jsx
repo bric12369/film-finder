@@ -15,7 +15,7 @@ function App() {
     <h1>FilmFinder</h1>
     <SearchBar setSearchTerm={setSearchTerm}/>
     <FilmList searchTerm={searchTerm} apiKey={apiKey} setWatchList={setWatchList}/>
-    <WatchList watchList={watchList}/>
+    <WatchList watchList={watchList} setWatchList={setWatchList}/>
     </>
   )
 }
