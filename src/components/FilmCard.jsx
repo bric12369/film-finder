@@ -8,8 +8,10 @@ const FilmCard = ({ film }) => {
     const releaseDate = formatDate(film.release_date)
     return (
         <div key={film.id} id='filmCard'>
-            <h3>{film.title}</h3>
-            {releaseDate !== '' ? <p>Released: {releaseDate}</p> : <p>Release date could not be found</p>}
+            <div id='filmTextContainer'>
+                <h3>{film.title}</h3>
+                {releaseDate !== '' ? <p>Released: {releaseDate}</p> : <p>Release date could not be found</p>}
+            </div>
             <div id='posterContainer'>
                 <img src={poster} />
                 {poster === placeholderPoster && <figcaption>No poster found...</figcaption>}
