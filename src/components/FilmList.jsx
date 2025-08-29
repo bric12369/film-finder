@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import FilmCard from "./FilmCard"
 
-const FilmList = ({ searchTerm, apiKey }) => {
+const FilmList = ({ searchTerm, apiKey, setWatchList }) => {
     const [films, setFilms] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -28,7 +28,7 @@ const FilmList = ({ searchTerm, apiKey }) => {
             {searchTerm !== '' && films.length === 0 && <h2>Sorry... No results for {searchTerm}</h2>}
             <div id='filmCardContainer'>
                 {films.map((film) => {
-                    return <FilmCard film={film} key={film.id} />
+                    return <FilmCard film={film} key={film.id} setWatchList={setWatchList} showButton={true} />
                 })}
             </div>
         </>
