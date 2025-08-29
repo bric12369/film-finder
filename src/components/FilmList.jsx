@@ -25,7 +25,7 @@ const FilmList = ({ searchTerm, apiKey, setWatchList }) => {
         (<>
             {searchTerm !== '' && films.length > 0 && <h2>Search Results: {searchTerm}</h2>}
             {searchTerm !== '' && films.length === 0 && <h2>Sorry... No results for {searchTerm}</h2>}
-            <div id='filmCardContainer'>
+            <div className='filmCardContainer'>
                 {films.map((film) => {
                     return <FilmCard film={film} key={film.id} setWatchList={setWatchList} showAddButton={true} showRemoveButton={false} />
                 })}
