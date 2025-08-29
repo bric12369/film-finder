@@ -3,18 +3,12 @@ import './App.css'
 import SearchBar from './components/SearchBar.jsx'
 import FilmList from './components/FilmList.jsx'
 import WatchList from './components/WatchList.jsx';
-import localStorage from '../utils/local-storage.js'
+import usePersistedState from './hooks/usePersistedState.js';
 
 function App() {
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
   const [searchTerm, setSearchTerm] = useState('')
-  const [watchList, setWatchList] = useState(() => {
-    return localStorage.getItem('watchList')
-  })
-
-  useEffect(() => {
-    return localStorage.addItem('watchList', watchList)
-  }, [watchList])
+  const [watchList, setWatchList] = usePersistedState('watchList', [])
 
 
   return (
