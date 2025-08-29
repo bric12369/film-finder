@@ -10,10 +10,13 @@ function App() {
   const [searchTerm, setSearchTerm] = useState('')
   const [watchList, setWatchList] = usePersistedState('watchList', [])
 
+  const refreshPage = () => {
+    window.location.reload()
+  }
 
   return (
     <>
-    <h1>FilmFinder</h1>
+    <h1 onClick={refreshPage}>FilmFinder</h1>
     <SearchBar setSearchTerm={setSearchTerm}/>
     <FilmList searchTerm={searchTerm} apiKey={apiKey} setWatchList={setWatchList}/>
     <WatchList watchList={watchList} setWatchList={setWatchList}/>
