@@ -20,7 +20,7 @@ const SearchBar = ({ setSearchTerm }) => {
                     setInput(e.target.value)
                 }}/>
             </label>
-            <button disabled={searchBarStatus === 'empty'}>Search</button>
+            <button disabled={searchBarStatus === 'empty' || input.length === 0}>Search</button>
         </form>
     )
 }
