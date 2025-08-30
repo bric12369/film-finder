@@ -30,7 +30,7 @@ const FilmList = ({ searchTerm, apiKey, setWatchList, focus }) => {
                     return <FilmCard film={film} key={film.id} setWatchList={setWatchList} showAddButton={true} showRemoveButton={false} />
                 })}
             </div>
-            {films.length > 0 && <button onClick={focus}>Search again</button>}
+            {films.length > 0 && <button onClick={focus} id="searchAgain">Search again</button>}
         </>
         )
 }
