@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react"
 import FilmCard from "./FilmCard"
 
-const FilmList = ({ searchTerm, apiKey, setWatchList }) => {
+const FilmList = ({ searchTerm, apiKey, setWatchList, focus }) => {
     const [films, setFilms] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -30,6 +30,7 @@ const FilmList = ({ searchTerm, apiKey, setWatchList }) => {
                     return <FilmCard film={film} key={film.id} setWatchList={setWatchList} showAddButton={true} showRemoveButton={false} />
                 })}
             </div>
+            {films.length > 0 && <button onClick={focus}>Search again</button>}
         </>
         )
 }

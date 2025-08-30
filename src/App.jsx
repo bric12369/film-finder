@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useRef } from 'react'
 import './App.css'
 import SearchBar from './components/SearchBar.jsx'
 import FilmList from './components/FilmList.jsx'
@@ -9,6 +9,11 @@ function App() {
   const apiKey = import.meta.env.VITE_TMDB_API_KEY;
   const [searchTerm, setSearchTerm] = useState('')
   const [watchList, setWatchList] = usePersistedState('watchList', [])
+  const inputRef = useRef()
+
+  const focus = () => {
+    inputRef.current.focus()
+  }
 
   const refreshPage = () => {
     window.location.reload()
@@ -17,8 +22,8 @@ function App() {
   return (
     <>
     <h1 onClick={refreshPage}>FilmFinder</h1>
-    <SearchBar setSearchTerm={setSearchTerm}/>
-    <FilmList searchTerm={searchTerm} apiKey={apiKey} setWatchList={setWatchList}/>
+    <SearchBar setSearchTerm={setSearchTerm} inputRef={inputRef}/>
+    <FilmList searchTerm={searchTerm} apiKey={apiKey} setWatchList={setWatchList} focus={focus}/>
     <WatchList watchList={watchList} setWatchList={setWatchList}/>
     </>
   )

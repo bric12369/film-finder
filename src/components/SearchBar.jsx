@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const SearchBar = ({ setSearchTerm }) => {
+const SearchBar = ({ setSearchTerm, inputRef }) => {
     const [input, setInput] = useState('')
     const [searchBarStatus, setSearchBarStatus] = useState('empty')
     
@@ -15,7 +15,7 @@ const SearchBar = ({ setSearchTerm }) => {
         <form onSubmit={handleSubmit}>
             <label htmlFor="search">
                 Search for films:
-                <input type="text" id="search" value={input} onChange={(e) => {
+                <input ref={inputRef} type="text" id="search" value={input} onChange={(e) => {
                     setSearchBarStatus('not empty')
                     setInput(e.target.value)
                 }}/>
